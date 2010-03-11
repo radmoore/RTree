@@ -23,20 +23,6 @@ class Tree
 
   # return string representation
   def to_s
-    @nodes.each do |n|
-      puts "node name: #{n}"
-      if (n.is_root?)
-        puts "\tParent node: root"
-        puts "\tChild node: #{n.children}"
-      elsif (n.is_leaf?)
-        puts "\tParent node: #{n.parent}"
-        puts "\tChild node: leaf node"
-      else
-        puts "\tParent node: #{n.parent}"
-        puts "\tChild node: #{n.children}"
-     
-      end
-    end
   end
 
   # return subtree with current node
@@ -79,10 +65,12 @@ class Tree
   end
 
   def get_child_nodes(node_name)
+    raise "*** E: Attempt to access undefined node #{node_name}" unless (self.node_exists?(node_name))
     @nodes[node_name].children
   end
 
   def get_parent_node(node_name)
+    raise "*** E: Attempt to access undefined node #{node_name}" unless (self.node_exists?(node_name))
     @nodes[node_name].parent
   end
 
@@ -100,17 +88,6 @@ class Tree
     return node
   end
 
-#preorder(node)
-#  print node.value
-#  if node.left ≠ null then preorder(node.left) 
-#  if node.right ≠ null then preorder(node.right)
-
-
-  # cases:
-  # is node leaf
-  # have we visited its sibling
-  # does node have children (ie. not leaf)
-  # have we visited each child?
   def pre_traversal(node)
 		return nil if @visited.keys.length == @nodes.keys.length
     if node.is_leaf?
@@ -130,8 +107,6 @@ class Tree
     end
 		pre_traversal(node.parent)
   end
-
-
 
   # returns lineage for species
   def to_lineage(species)
