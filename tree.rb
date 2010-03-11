@@ -95,13 +95,16 @@ class Tree
   # traversal strategy
   def next_node
     node = @cnode
-    puts "\t\tSetting this node to seen: #{node}"
     @visited[node.name] = 0
-    puts "STARTING TRAVERSAL"
-    puts "=================================="
-    @cnode = pre_traversal(node)
+    pre_traversal(node)
     return node
   end
+
+#preorder(node)
+#  print node.value
+#  if node.left ≠ null then preorder(node.left) 
+#  if node.right ≠ null then preorder(node.right)
+
 
   # cases:
   # is node leaf
@@ -109,29 +112,25 @@ class Tree
   # does node have children (ie. not leaf)
   # have we visited each child?
   def pre_traversal(node)
+		return nil if @visited.keys.length == @nodes.keys.length
     if node.is_leaf?
-      puts "\t\t\tNow looking here: leaf node #{node}"
-      if (self.visited?(node))
-        puts "VISITED? #{self.visited?(node)}"
-        puts "\t\t\tI have also been here before: #{node}"
-      end
-      return node unless self.visited?(node)
-      pre_traversal(node.parent)
+			unless (self.visited?(node))
+				@cnode = node
+				return
+			end
     else
-      puts "\t\t\tInternal node: "+node.to_s
-      if (self.visited?(node.left_child))
-        puts "VISITED? #{self.visited?(node.left_child)}"
-        puts "\t\t\tI have been here before: #{node.left_child}"
-      else (self.visited?(node.right_child))
-        puts "VISITED? #{self.visited?(node.right_child)}"
-        puts "\t\t\tI have been here before: #{node.right_child}"
-      end
-      return node.left_child unless self.visited?(node.left_child)
-      return node.right_child unless self.visited?(node.right_child)
-      pre_traversal(node.parent)
-        
+			unless (self.visited?(node.left_child))
+				@cnode = node.left_child
+				return
+			end			
+			unless (self.visited?(node.right_child))
+				@cnode = node.right_child
+				return
+			end			
     end
+		pre_traversal(node.parent)
   end
+
 
 
   # returns lineage for species
@@ -195,7 +194,7 @@ class Node
 
   # add a child node
   def add_child_node(child_node)
-    @children << child_node
+    @children << child_node unless (@children.include?(child_node))
   end
 
   def has_children?
@@ -248,6 +247,6 @@ end
 t = Tree.new(ARGV[0])
 
 while (t.has_nodes?)
-  puts t.next_node
+  puts "OUTPUT: #{t.next_node}"
 end
 
