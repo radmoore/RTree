@@ -26,8 +26,9 @@ class Tree
   end
 
   # return subtree with current node
-  # as root, or nil if child
-  def prune(node_name)
+  # as root, a passed node as root
+	# or nil if node is child
+  def prune(node_name=@cnode.name)
 
   end
 
@@ -76,8 +77,20 @@ class Tree
 
   # reset current_node to root
   def reset
-    @current_node = @root_node
+		@visited = Hash.new
+    @cnode = @root_node
+		return
   end
+
+	# wrapper for next_node
+	# returns array of nodes in
+	# current traverse_strategy
+  # order
+	def traverse
+		a = Array.new
+		while(self.has_nodes?) do a << self.next_node end
+		return a
+	end	
 
   # return next node given the
   # traversal strategy
@@ -118,8 +131,6 @@ class Tree
   def get_subtree(node)
 
   end
-
-
 
   private
 
@@ -162,26 +173,23 @@ class Node
     @name = name
     @parent = nil
     @children = Array.new
-    @associations = nil
+    @associations = Hash.new
   end
 
   attr_reader :name, :parent, :children, :associations
 
-  # add a child node
   def add_child_node(child_node)
     @children << child_node unless (@children.include?(child_node))
+  end
+
+  def add_parent_node(parent_node)
+    @parent = parent_node
   end
 
   def has_children?
     not @children.nil?
   end
 
-  # add a parent node
-  def add_parent_node(parent_node)
-    @parent = parent_node
-  end
-
-  # return true if node is leaf
   def is_leaf?
     @children.empty? ? true : false
   end
@@ -201,7 +209,8 @@ class Node
   end
 
   # associate object with node
-  def assoc_with_node
+  def assoc_with_node(name, reference)
+		@associations[name] = reference
   end
 
   # return sister taxa, 
@@ -220,6 +229,9 @@ end
 
 
 t = Tree.new(ARGV[0])
+
+t.traverse.each {|n| puts n.to_s}
+t.reset
 
 while (t.has_nodes?)
   puts "OUTPUT: #{t.next_node}"
