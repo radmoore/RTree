@@ -150,7 +150,6 @@ class Tree
       l_nodes = line.split('; ')
       pnode = nil
       l_nodes.each do |n|
-        n = n.split(': ')[1] if (n.include?(':'))
         node = self.node_exists?(n) ? @nodes[n] : self.add_node(n)
         if (not pnode.nil?)
           node.add_parent_node(pnode)
@@ -226,14 +225,3 @@ class Node
   end
 
 end
-
-
-t = Tree.new(ARGV[0])
-
-t.traverse.each {|n| puts n.to_s}
-t.reset
-
-while (t.has_nodes?)
-  puts "OUTPUT: #{t.next_node}"
-end
-
