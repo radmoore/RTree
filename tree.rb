@@ -7,7 +7,7 @@
 # * Add other traversal strategies (inorder, postorder, level)
 class Tree
 
-  def initialize(lineage, polytomy=false)
+  def initialize(lineage=nil, polytomy=false)
     @nodes = Hash.new
     @polytomy = polytomy
     @sep = "\t" # separator in to_lineage // to_s
@@ -15,11 +15,34 @@ class Tree
     @current_node = nil
     @root_node = nil
     @visited = Hash.new
-    parse(lineage)
+    parse(lineage) unless (lineage.nil?)
   end
 
   attr_reader :polytomy, :root_node
   attr_accessor :sep
+
+	# TODO
+	# + complete this method
+	def add_lineage(lineage)
+		l_nodes = line.split('; ')
+    pnode = nil
+    l_nodes.each do |n|
+  	  node = self.node_exists?(n) ? @nodes[n] : self.add_node(n)
+      if (not pnode.nil?)
+				if (node.parent.nil?)
+	        node.add_parent_node(pnode)
+  	      pnode.add_child_node(node)
+				end
+      else
+        @root_node = node
+      end
+      pnode = node
+    end
+		@cnode = @root_node # this could be root of the subtree only
+#		self.find_root() # find root of tree
+	end
+	
+
 
   # return string representation
   def to_s
@@ -36,6 +59,12 @@ class Tree
   def prune!(node_name)
     
   end
+
+	def find_root()
+
+
+	end
+
 
   def visited?(node)
     @visited.has_key?(node.name)
@@ -59,6 +88,10 @@ class Tree
     raise "*** E: only preoder traversal (pre) currently supported" unless (s == "pre")
     @traversal_strategy = s
   end
+
+	def get_node_names
+		@nodes.keys
+	end
 
   def get_node(node_name)
     raise "*** E: Attempt to access undefined node #{node_name}" unless (self.node_exists?(node_name))
@@ -208,9 +241,14 @@ class Node
   end
 
   # associate object with node
-  def assoc_with_node(name, reference)
-		@associations[name] = reference
+  def add_data(name, data)
+		@associations[name] = data
   end
+
+	def get_data(name)
+		raise "*** E: Attempt to reference unknown data field #{name} for node #{self.name}" unless (@associations.has_key?(name))
+		@associations[name]
+	end	
 
   # return sister taxa, 
   # or root of neighbouring subtree
