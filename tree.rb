@@ -18,7 +18,7 @@ class Tree
     parse(lineage) unless (lineage.nil?)
   end
 
-  attr_reader :polytomy, :root_node
+  attr_reader :polytomy, :root_node, :traversal_strategy
   attr_accessor :sep
 
 	# TODO
@@ -85,7 +85,7 @@ class Tree
   end
 
   def set_traversal_strategy(s="pre")
-    raise "*** E: only preoder traversal (pre) currently supported" unless (s == "pre")
+    raise "*** E: only pre/post order traversal (pre/post) currently supported" unless (s == "pre" || s == 'post')
     @traversal_strategy = s
   end
 
@@ -125,17 +125,39 @@ class Tree
 		return a
 	end	
 
+	# TODO:
+	# + sanitize
+	# + efficiency (vars if start_node is used)
   # return next node given the
   # traversal strategy
-  def next_node
+	# if a start node is passed, the next node
+	# in the sequence based on the traversal strategy
+	# will be returned. However, this can not be used for iteration
+	# as nodes are never set to visited.
+  def next_node(start_node=nil)
     node = @cnode
-    @visited[node.name] = 0
-    pre_traversal(node)
+    if (self.traversal_strategy == 'pre')
+			if (start_node.nil?)
+	    	@visited[node.name] = 0
+				pre_traversal(node)
+			else
+				node_bck = @cnode
+				pre_traversal(start_node)
+				node = @cnode
+				@cnode = node_bck
+			end
+		elsif (self.traversal_strategy == 'post')
+			post_traversal(node)
+			node = @cnode
+			
+    	@visited[node.name] = 0
+		end
     return node
   end
-
+	
+	# visit root nodes first
   def pre_traversal(node)
-		return nil if @visited.keys.length == @nodes.keys.length
+		return if @visited.keys.length == @nodes.keys.length
     if node.is_leaf?
 			unless (self.visited?(node))
 				@cnode = node
@@ -153,6 +175,32 @@ class Tree
     end
 		pre_traversal(node.parent)
   end
+
+	# visit leafs first
+	def post_traversal(node)
+		return if @visited.keys.length == @nodes.keys.length
+		if node.is_leaf?
+			unless (self.visited?(node))
+				@cnode = node
+				return
+			end
+		else
+			unless (self.visited?(node.left_child))
+				post_traversal(node.left_child)
+				return
+			end
+			unless (self.visited?(node.right_child))
+				post_traversal(node.right_child)
+				return
+			end
+			unless (self.visited?(node))
+				@cnode = node
+				return
+			end
+		end
+		post_traversal(node.parent)
+	end
+
 
   # returns lineage for species
   def to_lineage(species)
@@ -246,7 +294,7 @@ class Node
   end
 
 	def get_data(name)
-		raise "*** E: Attempt to reference unknown data field #{name} for node #{self.name}" unless (@associations.has_key?(name))
+		return nil unless (@associations.has_key?(name))
 		@associations[name]
 	end	
 

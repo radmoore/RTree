@@ -1,4 +1,5 @@
-n1; S4
-n1; n2; S3
-n1; n2; n3; S2
-n1; n2; n3; S1
+r; O1
+r; n1; S4
+r; n1; n2; S3
+r; n1; n2; n3; S2
+r; n1; n2; n3; S1
