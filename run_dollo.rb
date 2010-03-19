@@ -2,45 +2,39 @@
 
 require 'tree'
 
-# create tree
-tree = Tree.new(ARGV.shift)
 
-# read all xdoms, and associate doms with tree nodes
-ARGV.each do |xdom|
-	name = xdom.split('.')[0]
-	node = tree.get_node(name)
-	doms = Hash.new
-	IO.foreach(xdom) {|line|
-		next if (/^>.+/.match(line))
-		(s, e, d, ev) = line.split
-		doms[d] = 1
-	}
-	node.add_data("domains", doms)
+
+def create_tree(lineage)
+  tree = Tree.new(lineage)
 end
 
-# get all node names, and save in hash
-nodes = Hash.new
-tree.get_node_names.each {|n| nodes[n] = 0}
 
+def add_domains_to_nodes(xdom_list, tree)
+  xdom_list.each do |xdom|
+    name = xdom.split('.')[0]
+    node = tree.get_node(name)
+    doms = Hash.new
+    IO.foreach(xdom) {|line|
+      next if (/^>.+/.match(line))
+      (s, e, d, ev) = line.split
+      doms[d] = 1
+     }
+    node.add_data("domains", doms)
+  end
+end
 
 def leaf2root(cnode)
-
 	return if cnode.is_root?
-
 	doms 		= Hash.new
 	cdoms 	= cnode.get_data('domains')
 	snode 	= cnode.get_sibling
 	sdoms 	= snode.get_data('domains')
-
 	if (sdoms.nil?)
 		leaf2root(snode.left_child)
 		return
 	end
-
 	(cdoms.keys | sdoms.keys).each do |d|
-
 		if (cdoms.has_key?(d) && sdoms.has_key?(d))
-
 			if ((not cnode.is_leaf?) or (not snode.is_leaf?))
 				if (cdoms[d].nil? or sdoms[d].nil?)
 					doms[d] = 1
@@ -52,7 +46,6 @@ def leaf2root(cnode)
 			doms[d] = nil
 		end
 	end
-
 	pnode = cnode.parent
 	pnode.add_data('domains', doms)
 	leaf2root(pnode)
@@ -74,33 +67,14 @@ def root2leafs(tree)
 		}
 		node.add_data('domains', cdoms)
 	end
-	
 	tree.reset
 	while(tree.has_nodes?)
 		n = tree.next_node
 		doms = n.get_data('domains')
 		n.add_data('domains', doms.delete_if { |k, v| v.nil? })
 	end
-
 end
 
-
-# second run, from root to leafs
-def root2leafs_old(node)
-	return if node.is_leaf?
-	pdata = node.get_data('domains')
-	node.children.each do |child|
-		cdata = child.get_data('domains')
-		(pdata.keys | cdata.keys).each do |d|
-			if (pdata.has_key?(d) && cdata.has_key?(d))
-				next if (pdata[d] == cdata[d])
-				cdata[d] = pdata[d] if (cdata[d] == 0) #child node state is set to parent if child node state is unknown
-				child.add_data('domains', cdata)
-			end
-		end
-		root2leafs(child)
-	end
-end
 
 def count_events(node)
 
@@ -114,44 +88,58 @@ def count_events(node)
 		outstring.push(node.name)
 		outstring.push(child.name)
 		(pdata.keys | cdata.keys).each do |d|
-			if (pdata.has_key?(d) && cdata.has_key?(d))
-				next if (pdata[d] == cdata[d])
-				
-			end
+			next if (pdata.has_key?(d) && cdata.has_key?(d))
+      loss += 1 if (pdata.has_key?(d))
+      gain += 1 if (cdata.has_key?(d))
 		end
 		outstring.push(gain)
 		outstring.push(loss)
 		puts outstring.join("\t")
-		#root2leafs(child)
+
+		count_events(child)
+
 	end
+end
+
+def inspect_pseudos(tree)
+
+  tree.reset
+  while(tree.has_nodes?)
+  	n = tree.next_node
+  	puts "node: #{n}"
+  	puts n.get_data('domains').inspect
+  end
+
+end
+
+
+def main
+
+  lineage_file = ARGV.shift
+  xdom_list = ARGV
+  tree = create_tree(lineage_file)
+  add_domains_to_nodes(xdom_list, tree)
+  # first run, determine internal nodes
+  leaf2root(tree.get_node('S1'))
+  # second run, from root to leafs
+  root2leafs(tree)
+
+  puts "NODE CONTENTS:"
+  puts "="*20
+  inspect_pseudos(tree)
+  puts ""
+  puts "EVENTS:"
+  puts "="*20
+  puts "parent\tchild\tgains\tlosses"
+  count_events(tree.root_node)
+ 
 
 
 
 end
-# first run, determine internal nodes
-leaf2root(tree.get_node('S1'))
-# second run, from root to leafs
-root2leafs(tree)
 
-#while(tree.has_nodes?)
-#	n = tree.next_node
-#	puts "node: #{n}"
-#	puts n.get_data('domains').inspect
-#end
-tree.reset
-while(tree.has_nodes?)
-	n = tree.next_node
-	puts "node: #{n}"
-	puts n.get_data('domains').inspect
-end
+abort "Usage: #{$0} LINEAGE_FILE 1.xdom, 2.xdom ..." unless (ARGV.size > 1)
 
-
-puts
-puts "parent\tchild\tgains\tlosses"
-#count_events(tree.root_node)
-
-
-
-
-
+### MAIN ###
+main()
 
