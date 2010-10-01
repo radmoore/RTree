@@ -44,8 +44,42 @@ class Tree
 	
 
 
+  # TODO: complete
   # return string representation
   def to_s
+    outstring = "("
+    subtrees = 0
+    lastnode = nil
+    while (self.has_nodes?)
+      node = self.next_node
+      # 1. is node root?
+      if (node.is_root?)
+        lastnode = node
+        next
+      end
+      # 2. is node internal?
+      if (not node.is_leaf?)
+        outstring += "("
+        lastnode = node
+        next
+      end
+      # 3. is node leaf?
+      if (node.is_leaf?)
+        # 3a. second lead node in succession
+        if (lastnode.is_leaf?)
+          outstring += "#{node.name}),"
+        # 3b. last node was internal
+        else
+          outstring += "#{node.name},"
+          subtrees += 1
+        end
+      end
+      lastnode = node
+    end
+    outstring.chop!
+    outstring += ")"*(subtrees-1)
+    puts outstring
+    self.reset
   end
 
   # return subtree with current node
