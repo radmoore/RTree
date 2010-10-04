@@ -2,6 +2,11 @@
 
 # VERSION Wed Mar 10 11:04:54 CET 2010
 
+# Runtime Excpetion of type Tree
+class TreeError < RuntimeError
+end
+
+
 # TODO:
 # * Add support for polytomy
 # * Add other traversal strategies (inorder, postorder, level)
@@ -44,42 +49,10 @@ class Tree
 	
 
 
-  # TODO: complete
   # return string representation
-  def to_s
-    outstring = "("
-    subtrees = 0
-    lastnode = nil
-    while (self.has_nodes?)
-      node = self.next_node
-      # 1. is node root?
-      if (node.is_root?)
-        lastnode = node
-        next
-      end
-      # 2. is node internal?
-      if (not node.is_leaf?)
-        outstring += "("
-        lastnode = node
-        next
-      end
-      # 3. is node leaf?
-      if (node.is_leaf?)
-        # 3a. second lead node in succession
-        if (lastnode.is_leaf?)
-          outstring += "#{node.name}),"
-        # 3b. last node was internal
-        else
-          outstring += "#{node.name},"
-          subtrees += 1
-        end
-      end
-      lastnode = node
-    end
-    outstring.chop!
-    outstring += ")"*(subtrees-1)
-    puts outstring
-    self.reset
+  def to_s(inodes=false, format='newick')
+    return newick_string(@root_node, inodes)+";" if format == 'newick'
+    raise "Unkown string format: #{format}"
   end
 
   # return subtree with current node
@@ -236,10 +209,6 @@ class Tree
 	end
 
 
-  # returns lineage for species
-  def to_lineage(species)
-
-  end
 
   # returns tree object that represents
   # the subtree from this node onward
@@ -248,6 +217,22 @@ class Tree
   end
 
   private
+
+  # Called by to_s if format is newick
+  def newick_string(node, inodes)
+    out = String.new
+    if (not node.is_leaf?) 
+      out += "("
+      node.children.each {|child|
+        out += newick_string(child, inodes)
+        out += "," if child != node.children.last
+      }
+      out += inodes ? ")#{node.to_s}" : ")"
+    elsif (node.is_leaf?)
+      out += node.to_s
+    end
+    return out
+  end
 
   # parse lineage file
   def parse(lineage)
@@ -322,11 +307,12 @@ class Node
     self.children[1]
   end
 
-  # associate object with node
+  # associate data with node
   def add_data(name, data)
 		@associations[name] = data
   end
 
+  # get data associated with node
 	def get_data(name)
 		return nil unless (@associations.has_key?(name))
 		@associations[name]
@@ -341,7 +327,22 @@ class Node
   end
 
   def to_s
-    "#{name}"
+    self.name.gsub(/\s/, '_')
+  end
+
+  # returns lineage for node
+  def to_lineage(sep=';')
+    out = Array.new
+    node = self
+    return node.name if node.is_root?
+    loop do
+      out << node.name
+      node = node.parent
+      if (node.is_root?)
+        out << node.name
+        return out.join(sep)
+      end
+    end
   end
 
 end
