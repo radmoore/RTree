@@ -15,7 +15,6 @@ class Tree
   def initialize(lineage=nil, polytomy=false)
     @nodes = Hash.new
     @polytomy = polytomy
-    @sep = "\t" # separator in to_lineage // to_s
     @traversal_strategy = 'pre'
     @current_node = nil
     @root_node = nil
