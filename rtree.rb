@@ -6,10 +6,8 @@
 class TreeError < RuntimeError
 end
 
-
 # TODO:
 # * Add support for polytomy
-# * Add other traversal strategies (inorder, postorder, level)
 class Tree
 
   def initialize(lineage=nil, polytomy=false)
