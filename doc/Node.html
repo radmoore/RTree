@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Node</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./rtree_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="rtree.rb">rtree.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-add_child_node">#add_child_node</a></li>
+					
+					<li><a href="#method-i-add_data">#add_data</a></li>
+					
+					<li><a href="#method-i-get_data">#get_data</a></li>
+					
+					<li><a href="#method-i-get_sibling">#get_sibling</a></li>
+					
+					<li><a href="#method-i-has_children%3F">#has_children?</a></li>
+					
+					<li><a href="#method-i-is_leaf%3F">#is_leaf?</a></li>
+					
+					<li><a href="#method-i-is_root%3F">#is_root?</a></li>
+					
+					<li><a href="#method-i-left_child">#left_child</a></li>
+					
+					<li><a href="#method-i-right_child">#right_child</a></li>
+					
+					<li><a href="#method-i-to_lineage">#to_lineage</a></li>
+					
+					<li><a href="#method-i-to_s">#to_s</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./NewickTokenizer.html">NewickTokenizer</a></li>
+				
+					<li><a href="./Node.html">Node</a></li>
+				
+					<li><a href="./RTree.html">RTree</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Node</h1>
+
+		<div id="description">
+			<p>
+<a href="Node.html">Node</a> - A <a href="Node.html">Node</a> of a Tree
+</p>
+<p>
+Class to represent a node of a tree
+</p>
+<table>
+<tr><td valign="top">Author</td><td><p>
+Andrew D. Moore [radmoore@uni-muenster.de]
+</p>
+</td></tr>
+</table>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="name-attribute-method" class="method-detail">
+				<a name="name"></a>
+				
+				<a name="name="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">name</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="parent-attribute-method" class="method-detail">
+				<a name="parent"></a>
+				
+				<a name="parent="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">parent</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="children-attribute-method" class="method-detail">
+				<a name="children"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">children</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+			<div id="associations-attribute-method" class="method-detail">
+				<a name="associations"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">associations</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a new node with name <tt>name</tt>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 376</span>
+376:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)
+377:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+378:     <span class="ruby-ivar">@parent</span> = <span class="ruby-keyword kw">nil</span>
+379:     <span class="ruby-ivar">@children</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+380:     <span class="ruby-ivar">@associations</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+381:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="add-child-node-method" class="method-detail ">
+				<a name="method-i-add_child_node"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_child_node</span><span
+						class="method-args">(child_node)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Adds <tt>child_node</tt> as child to <tt>self</tt>, and  <tt>self</tt> as
+parent node to <em>child_node</em>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-child-node-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 388</span>
+388:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_child_node</span>(<span class="ruby-identifier">child_node</span>)
+389:     <span class="ruby-keyword kw">unless</span> (<span class="ruby-ivar">@children</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">child_node</span>))
+390: <span class="ruby-comment cmt">#      puts &quot;Adding child node: #{child_node.name} to #{self.name}&quot;</span>
+391: <span class="ruby-comment cmt">#      puts &quot;Adding parent node: #{self.name} to #{child_node.name}&quot;</span>
+392:       <span class="ruby-identifier">child_node</span>.<span class="ruby-identifier">parent</span> = <span class="ruby-keyword kw">self</span>
+393:       <span class="ruby-ivar">@children</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">child_node</span> 
+394:     <span class="ruby-keyword kw">end</span>
+395:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="add-data-method" class="method-detail ">
+				<a name="method-i-add_data"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_data</span><span
+						class="method-args">(name, data)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Associates any type of data / object with <tt>self</tt>, where
+<tt>name</tt> must be unique. Re-using <tt>name</tt> will overwrite any
+previously defined data associated with <tt>self</tt>. Returns
+<tt>data</tt>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-data-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 434</span>
+434:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">data</span>)
+435:                 <span class="ruby-ivar">@associations</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">data</span>
+436:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="get-data-method" class="method-detail ">
+				<a name="method-i-get_data"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_data</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the data associated with <tt>self</tt> by <tt>name</tt>, or
+<tt>nil</tt> if no such data exists
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="get-data-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 440</span>
+440:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_data</span>(<span class="ruby-identifier">name</span>)
+441:                 <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">unless</span> (<span class="ruby-ivar">@associations</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">name</span>))
+442:                 <span class="ruby-ivar">@associations</span>[<span class="ruby-identifier">name</span>]
+443:         <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="get-sibling-method" class="method-detail ">
+				<a name="method-i-get_sibling"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get_sibling</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns sister taxa, root of neighbouring subtree or nil if <tt>self</tt>
+is root node
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="get-sibling-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 447</span>
+447:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_sibling</span>
+448:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_root?</span>
+449:     <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">child</span> <span class="ruby-keyword kw">unless</span> (<span class="ruby-identifier">child</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">self</span>) }
+450:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="has-children--method" class="method-detail ">
+				<a name="method-i-has_children%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">has_children?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns <tt>true</tt> if <tt>self</tt> has child, <tt>false</tt> otherwise
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="has-children--source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 399</span>
+399:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_children?</span>
+400:     <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@children</span>.<span class="ruby-identifier">nil?</span>
+401:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="is-leaf--method" class="method-detail ">
+				<a name="method-i-is_leaf%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">is_leaf?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns <tt>true</tt> if <tt>self</tt> is leaf, otherwise <tt>false</tt>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="is-leaf--source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 405</span>
+405:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_leaf?</span>
+406:     <span class="ruby-ivar">@children</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+407:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="is-root--method" class="method-detail ">
+				<a name="method-i-is_root%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">is_root?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns <tt>true</tt> if+self+ is a root node, <tt>false</tt> otherwise
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="is-root--source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 411</span>
+411:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_root?</span>
+412:     <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+413:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="left-child-method" class="method-detail ">
+				<a name="method-i-left_child"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">left_child</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the left child of <tt>self</tt>, or <tt>nil</tt> if <tt>self</tt>
+is a leaf
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="left-child-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 417</span>
+417:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">left_child</span>
+418:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_leaf?</span>
+419:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+420:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="right-child-method" class="method-detail ">
+				<a name="method-i-right_child"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">right_child</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the right child of <tt>self</tt>, or <tt>nil</tt> if <tt>self</tt>
+is a leaf
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="right-child-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 424</span>
+424:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">right_child</span>
+425:     <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_leaf?</span>
+426:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">1</span>]
+427:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-lineage-method" class="method-detail ">
+				<a name="method-i-to_lineage"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_lineage</span><span
+						class="method-args">(sep=';')</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the lineage of <tt>self</tt> starting at the root of the tree in
+which <tt>self</tt> is a node. Nodes in the lineage are separated by
+<tt>sep</tt>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="to-lineage-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 461</span>
+461:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_lineage</span>(<span class="ruby-identifier">sep</span>=<span class="ruby-value str">';'</span>)
+462:     <span class="ruby-identifier">out</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+463:     <span class="ruby-identifier">node</span> = <span class="ruby-keyword kw">self</span>
+464:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_root?</span>
+465:     <span class="ruby-identifier">loop</span> <span class="ruby-keyword kw">do</span>
+466:       <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>
+467:       <span class="ruby-identifier">node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>
+468:       <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_root?</span>)
+469:         <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>
+470:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">out</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">sep</span>)
+471:       <span class="ruby-keyword kw">end</span>
+472:     <span class="ruby-keyword kw">end</span>
+473:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="to-s-method" class="method-detail ">
+				<a name="method-i-to_s"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">to_s</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the name of <tt>self</tt>, with all spaces replaced (required for
+newick)
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="to-s-source">
+<pre>
+     <span class="ruby-comment cmt"># File rtree.rb, line 454</span>
+454:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+455:     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\s/</span>, <span class="ruby-value str">'_'</span>)
+456:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
