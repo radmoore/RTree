@@ -1,0 +1,44 @@
+#cele.xdom: Bilateria; Caenorhabditis elegans
+Bilateria; cele
+#hsap.xdom: Bilateria; Coelomata; Homo sapiens
+Bilateria; Coelomata; hsap
+#dpul.xdom: Bilateria; Coelomata; Pancrustacea; Daphnia pulex
+Bilateria; Coelomata; Pancrustacea; dpul
+#nvit.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; Hymenoptera; Nasonia vitripennis
+Bilateria; Coelomata; Pancrustacea; Endopterygota; Hymenoptera; nvit
+#amel.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; Hymenoptera; Apis mellifera
+Bilateria; Coelomata; Pancrustacea; Endopterygota; Hymenoptera; amel
+#tcas.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; Tribolium castaneum
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; tcas
+#bmor.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Bombyx mori
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; bmor
+#agyp.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; Culicinae; Aedes aegypti
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; Culicinae; agyp
+#cqui.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; Culicinae; Culex pipiens
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; Culicinae; cqui
+#agam.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; Anopheles gambiae
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Culicidae; agam
+#dgri.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; Drosophila grimshawi
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; dgri
+#dvir.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; E; Drosophila virilis
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; E; dvir
+#dmoj.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; E; Drosophila mojavensis
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; C; E; dmoj
+#dwil.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; Drosophila willistoni
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; dwil
+#dper.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; obscura group; Drosophila persimilis
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; obscura group; dper
+#dpse.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; obscura group; Drosophila pseudoobscura
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; obscura group; dpse
+#dana.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; Drosophila ananassae
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; dana
+#dere.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; F; Drosophila erecta
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; F; dere
+#dyak.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; F; Drosophila yakuba
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; F; dyak
+#dmel.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; Drosophila melanogaster
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; dmel
+#dsec.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; H; Drosophila sechellia
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; H; dsec
+#dsim.xdom: Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; H; Drosophila simulans
+Bilateria; Coelomata; Pancrustacea; Endopterygota; A; B; Diptera; Drosophila; Sophophora; D; melanogaster group; melanogaster subgroup; G; H; dsim

@@ -38,8 +38,13 @@ end
 # 
 # === Misc
 # Author:: Andrew D. Moore (radmoore@uni-muenster.de)
-# Tested on:: ruby 1.8.7 (2010-06-23 patchlevel 299) [i686-linux]
+# Copyright:: Copyright (c) 2010 - 2011
+#             Evolutionary Bioinformatics Group
+#             Institute for Evolution and Biodiversity
+#             University of Muenster, Germany
+# License::   Distributed under the same terms of Ruby
 # Requires:: digest/md5
+# Tested on:: Ruby 1.8.7 (2010-06-23 patchlevel 299) [i686-linux]
 # Open Issues::
 # * Support for polytomy
 # * Inorder traversal
@@ -387,8 +392,6 @@ class Node
   # +self+ as parent node to _child_node_
   def add_child_node(child_node)
     unless (@children.include?(child_node))
-#      puts "Adding child node: #{child_node.name} to #{self.name}"
-#      puts "Adding parent node: #{self.name} to #{child_node.name}"
       child_node.parent = self
       @children << child_node 
     end
